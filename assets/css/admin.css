@@ -1,0 +1,77 @@
+header {
+  background: #2c2766;
+}
+
+.admin__wrapper {
+  display: flex;
+  height: calc(100% - 66px);
+}
+
+.admin__wrapper .left__sidebar {
+  flex: 2;
+  height: 100%;
+  background: #30297c;
+}
+
+.admin__wrapper .left__sidebar ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  color: aliceblue;
+}
+
+.admin__wrapper .left__sidebar ul li a {
+  padding: 18px;
+  display: block;
+  border-bottom: 1px solid #444;
+}
+
+.admin__wrapper .left__sidebar ul li a:hover {
+  background: #181349;
+}
+
+.admin__wrapper .admin__content {
+  flex: 8;
+  height: 100%;
+  padding: 40px 100px 100px;
+  overflow-y: scroll;
+}
+
+.admin__content .page__title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.1rem;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #d3d3d3;
+}
+.edit {
+  color: green;
+}
+
+.delete {
+  color: red;
+}
+
+.publish {
+  color: blue;
+}
+
+.edit:hover,
+.delete:hover,
+.publish:hover {
+  text-decoration: underline;
+}
+
+form div {
+  margin-bottom: 20px;
+}
