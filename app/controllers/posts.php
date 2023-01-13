@@ -145,8 +145,9 @@ if (isset($_POST['add-post'])) { //  dd($_FILES['image']);
         // dd($_POST);
         $_POST['published'] = isset($_POST['published']) ? 1 : 0;
         $_POST['body'] = htmlentities($_POST['body']);
-
+    // dd($_POST);
         $post_id = create($table, $_POST);
+    
         $_SESSION['message'] = "Post created Successfully";
         $_SESSION['type'] = "success";
         header('location: ' . $BASE_URL . '/admin/posts/index.php');

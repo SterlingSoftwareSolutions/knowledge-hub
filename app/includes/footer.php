@@ -2,7 +2,7 @@
     <div class="footer">
       <div class="footer__content">
         <div class="footer__section about">
-          <h1 class="logo__text"><span>Deen</span>Store</h1>
+          <h1 class="logo__text"><span>Knowledge </span>Hub</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
             assumenda eos sed vero, deserunt nihil reprehenderit repudiandae

@@ -42,12 +42,14 @@ $posts = selectAll('posts', ['published' => 1]);
         <!-- Main Content Wrapper -->
         <div class="main__content__wrapper">
         <div class="main__content single">
-          <h1 class="post__title"><?php echo $post['title'];?></h1>
+          <!-- <h1 class="post__title"><?php echo $post['title'];?></h1> -->
          
           <div class="post__content">
             
-          <?php echo html_entity_decode($post['body']);  ?>
-          <video src="<?php  echo $BASE_URL . '/assets/videos/'. $post['video'];?>" style="margin-left: 280px ; border-radius: 20px;" width="240px" height="170px"  controls>   </video>
+          <!-- <?php echo html_entity_decode($post['body']);  ?> -->
+        
+          <video src="./assets/videos/1673501103_Beautiful sea beach 🌊🌊😍 _Nature whatsapp status _sad song whatsapp status.mp4" style="margin-left: 280px ; border-radius: 20px;" width="240px" height="170px"  controls>   </video>
+          <!-- <video src="<?php echo $BASE_URL . '/assets/videos/'. $post['video'];?>" style="margin-left: 280px ; border-radius: 20px;" width="240px" height="170px"  controls>   </video> -->
           </div>
         </div>
       </div>
