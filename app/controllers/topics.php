@@ -48,14 +48,14 @@
     adminOnly();
     $id = $_GET['del_id'];
     $count = delete($table, $id);
-     $_SESSION['message'] = 'Topic Deleted successfully';            //not working
+     $_SESSION['message'] = 'Topic Deleted successfully';            
      $_SESSION['type'] = 'success';    
      header('location:' . $BASE_URL . '/admin/topics/index.php');
      exit();
     
      }
 
-
+        
 
    if(isset($_POST['update-topic'])){
     adminOnly();

@@ -1,5 +1,5 @@
 header {
-  background: #2c2766;
+  background: #2C4B6F;
 }
 
 .admin__wrapper {
@@ -10,7 +10,7 @@ header {
 .admin__wrapper .left__sidebar {
   flex: 2;
   height: 100%;
-  background: #30297c;
+  background: #2C4B6F;
 }
 
 .admin__wrapper .left__sidebar ul {
@@ -23,11 +23,11 @@ header {
 .admin__wrapper .left__sidebar ul li a {
   padding: 18px;
   display: block;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #3d5575;
 }
 
 .admin__wrapper .left__sidebar ul li a:hover {
-  background: #181349;
+  background: #93B6D4;
 }
 
 .admin__wrapper .admin__content {
@@ -66,12 +66,23 @@ td {
   color: blue;
 }
 
+.unpublish{
+  color: rgb(80, 72, 1);
+}
+
 .edit:hover,
 .delete:hover,
-.publish:hover {
+.publish:hover,
+.unpublish:hover{
   text-decoration: underline;
 }
 
 form div {
   margin-bottom: 20px;
 }
+
+.imgGallery img {
+  padding: 8px;
+  max-width: 100px;
+  max-height: 100px;
+} 

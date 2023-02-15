@@ -29,7 +29,7 @@ adminOnly();
     <!-- Customer Styling -->
     <link rel="stylesheet" href="../assets/css/admin.css" />
 
-    <title>Admin Section - Dashborad </title>
+    <title>Admin Section - Dashboard </title>
   </head>
 
   <body>

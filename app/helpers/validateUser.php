@@ -19,7 +19,7 @@
     }
   
     if ($user['passwordConf'] !== $user['password']) {
-      array_push($errors, 'Password doesnt Match');
+      array_push($errors, 'Password does not Match');
     }
 
     // $existingUser = selectOne('users', ['email' => $user['email']]);

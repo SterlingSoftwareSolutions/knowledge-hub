@@ -14,7 +14,6 @@ if(isset($_GET['t_id'])){
   $posts = SearchPosts($_POST['search__term']);
 } else {
   $posts = getPublishedPosts();
-
 }
 ?>
 <!DOCTYPE html>
@@ -51,23 +50,20 @@ if(isset($_GET['t_id'])){
 
     <!-- Post Slider -->
     <div class="post__slider">
-      <h1 class="slider__title">Trending Post</h1>
-      <i class="fas fa-chevron-left prev"></i>
-      <i class="fas fa-chevron-right next"></i>
+      <h1 class="slider__title">Latest Articles</h1>
+   
 
       <div class="post__wrapper">
 
         <?php foreach ($posts as $post) : ?>
           <div class="post">
-            <img src="<?php echo  $BASE_URL . '/assets/images/' .  $post['image']; ?>" alt="" class="slider__image" />
             <div class="post__info" style="height: auto;">
               <h4>
-                <a href="single.php?id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a>
+                <a href="single.php?id=<?php echo $post['id']; ?>"><?php echo html_entity_decode(substr($post['title'], 0, 20) . '..'); ?>
               </h4>
-              <i class="far fa-user"><?php echo $post['username']?></i>
-              &nbsp;
+              <i class="far fa-user"> &nbsp;<?php echo $post['username']?></i>
+              &nbsp; 
               <i class="far fa-calendar"> <?php echo  date('F j, Y', strtotime(($post['created_at']))) ?></i>
-              <br> <br>
              
 
             </div>
@@ -86,40 +82,36 @@ if(isset($_GET['t_id'])){
 
     <!-- Content -->
     <div class="content clearfix">
-
-
-      <div class="main__content">
+        <div class="main__content">
         <h1 class="recent__post__title"><?php echo $postsTitle ?> </h1>
-
         <?php foreach ($posts as $post) : ?>
           <div class="post clearfix">
-            <img src="<?php echo $BASE_URL . '/assets/images/' .  $post['image']; ?>" alt="" class="post__image" />
             <div class="post__preview">
               <h2>
-                <a href="single.php?id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a>
+                <a href="single.php?id=<?php echo $post['id']; ?>"><?php echo html_entity_decode(substr($post['title'], 0, 60) . '...'); ?></a>
                  
               </h2>
-              <i class="far fa-user"><?php echo $post['username']?></i>
+              <i class="far fa-user">&nbsp;<?php echo $post['username']?></i>
               &nbsp;
               <i class="far fa-calendar"> <?php echo  date('F j, Y', strtotime(($post['created_at']))) ?></i>
               <p class="preview__text">
-                <?php echo html_entity_decode(substr($post['body'], 0, 150) . '...'); ?>
+                <?php echo html_entity_decode(substr($post['body'], 0, 80) . '...'); ?>
               </p>
-              <a href="single.php" class="btn read__more">Read More</a>
+              <a href="single.php?id=<?php echo $post['id']?>" class="btn read__more">Read More</a>
             </div>
           </div>
         <?php endforeach; ?>
       </div>
       <div class="sidebar">
         <div class="section search">
-          <h2 class="seaction__title">Search</h2>
+          <h2 class="section__title">Search</h2>
           <form action="index.php" method="post">
             <input type="text" name="search__term" class="text__input" placeholder="Search..." />
           </form>
         </div>
 
         <div class="section topics">
-          <h2 class="section__title">Topics</h2>
+          <h2 class="section__title">Categories</h2>
           <ul>
             <?php foreach ($topics as $key => $topic) :   ?>
               <li><a href="<?php echo $BASE_URL . '/index.php?t_id=' .$topic['id'] . '&name=' . $topic['name'] ?>"><?php echo $topic['name']; ?></a></li>

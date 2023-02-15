@@ -61,7 +61,8 @@ adminOnly();
                 </div>
                 <div>
                 <label>Image</label>
-                <input type="file" name="image"class="text__input">
+
+                <input type="file" name="files[]" value="<?php echo $imageURL;?>" class="text__input" id="chooseFile" multiple >
                 </div>
                 <div>
                 <label>Topic</label>
@@ -79,7 +80,7 @@ adminOnly();
                     </select>
                 </div>
                 <div>
-                  <?php if (empty($published)&& $published == 0): ?>
+                  <?php if (empty($published) && $published == 0): ?>
                     <label>
                         <input type="checkbox" name="published" >Publish
                     </label> 
@@ -110,6 +111,30 @@ adminOnly();
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script>
+    $(function() {
+      // Multiple images preview with JavaScript
+      var multiImgPreview = function(input, imgPreviewPlaceholder) {
+        if (input.files) {
+          var filesAmount = input.files.length;
+          for (i = 0; i < filesAmount; i++) {
+            var reader = new FileReader();
+            reader.onload = function(event) {
+              $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(imgPreviewPlaceholder);
+            }
+            reader.readAsDataURL(input.files[i]);
+          }
+        }
+      };
+      $('#chooseFile').on('change', function() {
+        multiImgPreview(this, 'div.imgGallery');
+      });
+    });
+  </script>
 
     <!-- CKeditor -->
     <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>

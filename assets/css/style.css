@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
 * {
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+
 }
 
 html,
@@ -38,7 +42,7 @@ a {
 
 .btn {
   padding: 0.5rem 1rem;
-  background: #35802b;
+  background: #2C4B6F;
   color: white;
   border: 1px solid transparent;
   border-radius: 0.25em;
@@ -53,7 +57,7 @@ a {
 
 .btn:hover {
   color: white !important;
-  background: #28725c;
+  background: #93B6D4;
 }
 
 .text__input {
@@ -110,8 +114,8 @@ a {
 
 /* Header $ Navigation Style */
 header {
-  background: #598162;
-  height: 66px;
+  background: #2C4B6F;
+  height: 67px;
 }
 
 header * {
@@ -121,16 +125,19 @@ header * {
 header .logo {
   float: left;
   height: inherit;
-  margin-left: 2em;
+  margin-left: 1.5em;
+
 }
 
 header .logo__text {
   margin: 9px;
-  font-family: "Candal", serif;
+  font-family: "Candal", serif !important;
 }
 
 header .logo__text span {
-  color: rgb(39, 214, 106);
+  color:#93B6D4;
+  font-family: "Candal", serif !important;
+
 }
 
 header ul {
@@ -173,18 +180,19 @@ header ul li ul li a.logout {
 }
 
 header ul li ul li a:hover {
-  background: #a19be2;
+  background: #93B6D4;
 }
 
 header ul li a {
   display: block;
   padding: 21px;
-  font-size: 1.1em;
+  font-size: 1rem;
   text-decoration: none;
+  
 }
 
 header ul li a:hover {
-  background: #25bb32;
+  background: #93B6D4;
   transition: 0.5s;
 }
 
@@ -197,7 +205,7 @@ header .menu__toggle {
 }
 
 .page__wrapper a:hover {
-  color: #4df047;
+  color: #0d57a2;
 }
 /* Header $ Navigation Style End */
 /* Post Style */
@@ -210,12 +218,12 @@ header .menu__toggle {
   margin: 30px auto;
 }
 
-.post__slider .next {
+/* .post__slider .next {
   position: absolute;
   top: 50%;
   right: 30px;
   font-size: 2em;
-  color: #9be2a1;
+  color: #0d57a2;
   cursor: pointer;
 }
 
@@ -224,20 +232,20 @@ header .menu__toggle {
   top: 50%;
   left: 30px;
   font-size: 2em;
-  color: #9be2a4;
+  color: #0d57a2;
   cursor: pointer;
-}
+} */
 
 .post__slider .post__wrapper {
-  width: 84%;
-  height: 350px;
-  margin: 0px auto;
+  width: 95%;
+  height: fit-content;
+  margin: 0px 15px 0px 35px;
   overflow: hidden;
   padding: 10px 0px 10px 0px;
 }
 
 .post__slider .post__wrapper .post {
-  height: 300px;
+  height: fit-content;
   width: 330px;
   margin: 0px 10px;
   display: inline-block;
@@ -251,9 +259,19 @@ header .menu__toggle {
   padding: 0px 5px;
 }
 
+.post__slider .post__wrapper .post .post__info h4{
+  font-weight: 600;
+}
+
+.post__slider .post__wrapper .post .post__info i{
+  font-size: small;
+  color: #272727;
+
+}
+
 .post__slider .post__wrapper .post .slider__image {
   width: 100%;
-  height: 200px;
+  height:150px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -283,11 +301,15 @@ header .menu__toggle {
 
 .content .main__content .post {
   width: 95%;
-  height: 270px;
+  height:fit-content;
   margin: 20px auto;
   border-radius: 5px;
   background: white;
   position: relative;
+}
+
+.post__preview i{
+  color:#464646;
 }
 
 .content .popular .post {
@@ -307,14 +329,18 @@ header .menu__toggle {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  border: 1px solid #6ef047;
+  border: 1px solid #93B6D4;
   background: transparent;
   border-radius: 0px;
-  color: #1f8b28 !important;
+  color: #2C4B6F !important;
+  padding: 0.25rem 0.5rem;
+  font-size:medium;
+  border-radius: 5px;
+
 }
 
 .content .main__content .post .read__more:hover {
-  background: #47f05e;
+  background: #2C4B6F;
   color: white !important;
   transition: 0.25s;
 }
@@ -402,7 +428,9 @@ header .menu__toggle {
 }
 
 .footer .footer__content .about h1 span {
-  color: rgb(39, 214, 106);
+  color: #93B6D4;
+  font-family: "Candal", serif !important;
+
 }
 
 .footer .footer__content .about .contact span {
@@ -422,7 +450,10 @@ header .menu__toggle {
   font-size: 1.5em;
   border-radius: 5px;
   transition: all 0.3s;
+  font-family: "Lore", serif;
+
 }
+
 
 .footer .footer__content .about .socials a:hover {
   border: 1px solid white;
@@ -497,6 +528,16 @@ header .menu__toggle {
 .auth__content form p a {
   text-decoration: underline;
 }
+
+.imgGallery img {
+  padding: 8px;
+  max-width: 100px;
+  max-height: 100px;
+
+
+} 
+
+
 /* Auth Style End */
 
 /* Media Queary Header $ Navigation Style */

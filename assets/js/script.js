@@ -5,10 +5,13 @@ $(document).ready(function () {
   });
 
   $(".post__wrapper").slick({
-    slidesToShow: 3,
+    slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 0,
+    speed: 3000,
+    cssEase: 'linear',
+    infinite:1,
     nextArrow: $(".next"),
     prevArrow: $(".prev"),
     responsive: [
@@ -18,7 +21,6 @@ $(document).ready(function () {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true,
         },
       },
       {
