@@ -1,7 +1,7 @@
 <?php 
-$hostname = "localhost";
-$username = "root";
-$password = "";
+$hostname = "knowledgehub.sterlingbpo.com.au";
+$username = "admin_blog";
+$password = "Maneth@12";
 $db_name = "blog";
 
 $conn = new mysqli($hostname, $username, $password, $db_name);
