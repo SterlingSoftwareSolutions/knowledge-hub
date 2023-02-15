@@ -14,7 +14,7 @@
     // if ($existingTopic){
     //     array_push($errors, 'Email is Already exists');
     // }
-    $existingTopic = selectOne('topics', ['name' => $post['name']]);
+    $existingTopic = selectOne('topics', ['name' => $_POST['name']]);
     if($existingTopic){
       if(isset($post['update-topic']) && $existingTopic['id'] != $post['id']){
         array_push($errors, 'Name is already exists');
