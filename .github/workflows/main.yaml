@@ -1,0 +1,19 @@
+on:
+  push:
+    branches:
+      - main
+name: Deploy Main on Push
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get latest code
+      uses: actions/checkout@v2
+      
+    - name: Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      with:
+        server: knowledgehub.sterlingbpo.com.au
+        username: maneth@knowledgehub.sterlingbpo.com.au
+        password: Maneth@12
