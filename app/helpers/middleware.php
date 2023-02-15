@@ -12,10 +12,10 @@ function usersOnly($redirect = '/index.php')
 
 function adminOnly($redirect = './index.php')
 {
-    if(  empty($_SESSION['admin'])){
+    if(  empty($_SESSION['admin'])){ 
         $_SESSION['message'] = 'You need not authorized';
         $_SESSION['type'] = 'error';
-        header('location: '. "http://localhost/blog/");
+        header('location: '. "https://knowledgehub.sterlingbpo.com.au/");
         exit(0);
  }
 }

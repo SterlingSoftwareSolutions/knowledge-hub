@@ -85,7 +85,7 @@ if (isset($_POST['add-post'])) {
         if (!in_array($file_extension, $allowed_extension)) {
             $_SESSION['message'] = 'Please Check Video Format';
             $_SESSION['type'] = 'error';
-            header('location: /blog/admin/posts/create.php');
+            header('location: /admin/posts/create.php');
             exit(0);
         }
 
