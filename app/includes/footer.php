@@ -4,9 +4,8 @@
         <div class="footer__section about">
           <h1 class="logo__text"><span>Knowledge </span>Hub</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
-            assumenda eos sed vero, deserunt nihil reprehenderit repudiandae
-            odit minus recusandae.
+            KnowledgeHub is a blog site for users....
+            The main goal of this site is to provide related articles and resources that allows users to polish their knowledge.
           </p>
           <div class="contact">
             <span><i class="fas fa-phone"> &nbsp; 123-456-789</i></span>
