@@ -6,15 +6,14 @@ include($ROOT_PATH . "/app/controllers/topics.php");
 $posts = array();
 $postsTitle = 'Recent Posts';
 
-if(isset($_GET['t_id'])){
+if (isset($_GET['t_id'])) {
   $posts = getPostsByTopicId($_GET['t_id']);
   $postsTitle = "You searched for posts under'" . $_GET['name']  . "'";
-}else if(isset($_POST['search__term'])){
+} else if (isset($_POST['search__term'])) {
   $postsTitle = "You searched for '" . $_POST['search__term'] . "'";
   $posts = SearchPosts($_POST['search__term']);
 } else {
   $posts = getPublishedPosts();
-
 }
 ?>
 <!DOCTYPE html>
@@ -64,24 +63,24 @@ if(isset($_GET['t_id'])){
               <h4>
                 <a href="single.php?id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a>
               </h4>
-              <i class="far fa-user"><?php echo $post['username']?></i>
+              <i class="far fa-user"><?php echo $post['username'] ?></i>
               &nbsp;
               <i class="far fa-calendar"> <?php echo  date('F j, Y', strtotime(($post['created_at']))) ?></i>
               <br> <br>
-             
+
 
             </div>
- 
+
           </div>
 
         <?php endforeach; ?>
 
-  
-    </div>
-    <!-- Post Slider End-->
+
+      </div>
+      <!-- Post Slider End-->
 
     </div>
-     
+
 
 
     <!-- Content -->
@@ -97,9 +96,9 @@ if(isset($_GET['t_id'])){
             <div class="post__preview">
               <h2>
                 <a href="single.php?id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a>
-                 
+
               </h2>
-              <i class="far fa-user"><?php echo $post['username']?></i>
+              <i class="far fa-user"><?php echo $post['username'] ?></i>
               &nbsp;
               <i class="far fa-calendar"> <?php echo  date('F j, Y', strtotime(($post['created_at']))) ?></i>
               <p class="preview__text">
@@ -122,7 +121,7 @@ if(isset($_GET['t_id'])){
           <h2 class="section__title">Topics</h2>
           <ul>
             <?php foreach ($topics as $key => $topic) :   ?>
-              <li><a href="<?php echo $BASE_URL . '/index.php?t_id=' .$topic['id'] . '&name=' . $topic['name'] ?>"><?php echo $topic['name']; ?></a></li>
+              <li><a href="<?php echo $BASE_URL . '/index.php?t_id=' . $topic['id'] . '&name=' . $topic['name'] ?>"><?php echo $topic['name']; ?></a></li>
             <?php endforeach; ?>
           </ul>
         </div>
@@ -143,7 +142,7 @@ if(isset($_GET['t_id'])){
 
   <!-- Custome Script -->
   <script src="./assets/js/script.js"></script>
-  
+
 </body>
 
 </html>
