@@ -15,7 +15,7 @@ function adminOnly($redirect = './index.php')
     if(  empty($_SESSION['admin'])){
         $_SESSION['message'] = 'You need not authorized';
         $_SESSION['type'] = 'error';
-        header('location: '. "http://localhost/blog/");
+        header('location: '. "http://localhost /");
         exit(0);
  }
 }
