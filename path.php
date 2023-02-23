@@ -3,4 +3,4 @@
  //in here first argument is the name of the constant, in this case Root_path
 
  $ROOT_PATH = realpath(dirname(__FILE__));  //ROOTPATH
- $BASE_URL = "https://knowledgehub.sterlingbpo.com.au"; 
+ $BASE_URL = "http://localhost/blog/"; 

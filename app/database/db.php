@@ -9,7 +9,6 @@ function dd($value)
 }
 
 
-
 function executeQuery($sql, $data)
 {
     global $conn;
@@ -36,9 +35,6 @@ function selectAll($table, $conditions = [])
         $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         return $records;
     } else {
-        // //return records that match the conditions 
-        // $sql = "SELECT * FROM $table WHERE username='Awa'AND admin=1";  
-
         $index = 0;        //             => 1   
         foreach ($conditions as $key => $value) {
             if ($index === 0) {
@@ -48,9 +44,8 @@ function selectAll($table, $conditions = [])
             }
             $index++;
         }
-
         $stmt = executeQuery($sql, $conditions);
-        $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);  // getting results and returning
+        $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);  
         return $records;
     }
 }
@@ -70,16 +65,9 @@ function selectOne($table, $conditions)
         }
         $index++;
     }
-
-
-    // $sql = "SELECT * FROM WHERE admin=0 AND username='Awa'"
-
-
-
-
     $sql = $sql . " LIMIT 1";
     $stmt = executeQuery($sql, $conditions);
-    $records = $stmt->get_result()->fetch_assoc();  // getting results and returning
+    $records = $stmt->get_result()->fetch_assoc();  
     return $records;
 }
 
@@ -98,11 +86,8 @@ function create($table, $data)
         }
         $index++;
     }
-
     $stmt = executeQuery($sql, $data);
-
-    $id = $stmt->insert_id;          //retrieves the ID of the newly created record
-
+    $id = $stmt->insert_id;          
     return $id;
 }
 
@@ -113,10 +98,7 @@ function update($table, $id, $data)
 
 {
     global $conn;
-    // $sql ="UPDATE  users SET username=?, admin=?, email=?, password=? WHERE id=?"
     $sql = "UPDATE $table SET ";
-    // updating the table name and setting above column values
-
     $index = 0;
     foreach ($data as $key => $value) {
         if ($index === 0) {
@@ -126,19 +108,10 @@ function update($table, $id, $data)
         }
         $index++;
     }
-
     $sql = $sql . " WHERE id=? ";
     $data['id'] = $id;
     $stmt = executeQuery($sql, $data);
     return $stmt->affected_rows;
-
-    //the values which are going into queries is equal to  number of placeholders "?" 
-    //in this case there 5 data's and 5 query lines above
-
-
-    // $data =[
-
-    // ];
 }
 
 
@@ -151,7 +124,6 @@ function delete($table, $id)
 {
     global $conn;
     $sql = "DELETE FROM $table WHERE id=? ";
-
     $stmt = executeQuery($sql, ['id' => $id]);
     return $stmt->affected_rows;
 }
@@ -186,8 +158,6 @@ function SearchPosts($term)
         ON p.user_id=u.id 
         WHERE p.published=?
         AND p.title LIKE ? OR p.body LIKE ? ";
-
-
     $stmt = executeQuery($sql, ['published' => 1, 'title' => $match, 'body' => $match]);
     $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);  // getting results and returning
     return $records;

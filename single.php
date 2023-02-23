@@ -1,14 +1,43 @@
 <?php include("path.php") ?>
 <?php include($ROOT_PATH . '/app/controllers/posts.php');
-
+$newpost;
 if (isset($_GET['id'])) {
   $post = selectOne('posts', ['id' =>  $_GET['id']]);
-  $images_for_the_post = selectAll('uploads', ['postId' => $_GET['id']]);
+  $newpost = $post;
+  $images_for_the_post = selectAll('uploads', ['postId' => $_GET['id']]); 
 }
-
+$filtered_Posts = array();
 $topics = selectAll('topics');
 $posts = selectAll('posts', ['published' => 1]);
+
+if (isset($_SESSION['admin'])) {
+
+  if ($_SESSION['admin']) {
+
+    foreach ($posts as $key => $post) {
+      $filtered_Posts[$key] =  $post;
+    }
+  } else {
+
+    foreach ($posts as $key => $post) {
+      if ($post['isAdmin'] == 0) {
+        $filtered_Posts[$key] = $post;
+      }
+    }
+  }
+} else {
+  foreach ($posts as $key => $post) {
+    if ($post['isAdmin'] == 0) {
+      $filtered_Posts[$key] = $post;
+    }
+  }
+}
+$posts = array();
+
+$posts =  $filtered_Posts;
+// dd($post);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +56,7 @@ $posts = selectAll('posts', ['published' => 1]);
   <!-- Customer Styling -->
   <link rel="stylesheet" href="./assets/css/style.css" />
 
-  <title><?php echo $post['title']; ?>| KnowledgeHub</title>
+  <title><?php echo $newpost['title']; ?>| KnowledgeHub </title>
 </head>
 
 <body>
@@ -40,54 +69,46 @@ $posts = selectAll('posts', ['published' => 1]);
       <!-- Main Content Wrapper -->
       <div class="main__content__wrapper">
         <div class="main__content single">
-          <h1 class="post__title"><?php echo $post['title']; ?></h1>
-
-
-
+          <!-- Title  -->
+          <h1 class="post__title"><?php echo $newpost['title']; ?></h1>
           <div class="post__content">
-            
-            <?php echo html_entity_decode($post['body']);  ?>
-
+            <!-- Body  -->
+            <?php echo html_entity_decode($newpost['body']);  ?>
+            <!-- image  -->
             <?php
             foreach ($images_for_the_post as $key => $image) {
               $imageURL = $BASE_URL . '/assets/images/' . $image["images"]; ?>
-              <img src="<?php echo  $imageURL; ?>" alt="" style="width:150px;height: 120px;" />
+              <img src="<?php echo  $imageURL; ?>" alt="" style="max-width:100%; height:auto" />
             <?php } ?>
-
-
             <br>
-            <video src="<?php echo $BASE_URL . '/assets/videos/' . $post['video']; ?>" style="margin-left: 80px ; border-radius: 15px;" width="540px" height="300px" controls autoplay="true" loop="true">
+            <!-- Video -->
+            <?php
+            if (file_exists($filename)) {
+    echo "The file $filename exists";
+} else {
+    echo "The file $filename does not exist";
+}
+?>
+            <video src="<?php echo $BASE_URL . '/assets/videos/' . $newpost['video']; ?>"
+             style="margin-left: 80px ; border-radius: 15px;" width="540px" height="300px" 
+             controls autoplay="true" loop="true">
             </video>
           </div>
         </div>
       </div>
 
 
-
-
-
-
-
-
-
       <!-- Sidebar -->
       <div class="sidebar single">
         <div class="section popular">
           <h2 class="section__title">Popular</h2>
-
           <?php foreach ($posts as $p) : ?>
-
-
-
             <div class="post clearfix">
               <a href="single.php?id=<?php echo $p['id']; ?>" class="title">
                 <h4><?php echo html_entity_decode(substr($p['title'], 0, 60) . '..'); ?></h4>
               </a>
             </div>
-
           <?php endforeach; ?>
-
-
         </div>
         <div class="section topics">
           <h2 class="section__title">Topics</h2>
@@ -108,10 +129,10 @@ $posts = selectAll('posts', ['published' => 1]);
   <!-- JQuery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.slim.min.js" integrity="sha512-yBpuflZmP5lwMzZ03hiCLzA94N0K2vgBtJgqQ2E1meJzmIBfjbb7k4Y23k2i2c/rIeSUGc7jojyIY5waK3ZxCQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <!-- Slick Carosal -->
+  <!-- Slick Carousal -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-  <!-- Custome Script -->
+  <!-- Custom Script -->
   <script src="./assets/js/script.js"></script>
 </body>
 

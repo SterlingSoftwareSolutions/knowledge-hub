@@ -5,8 +5,8 @@
       <i class="fa fa-bars menu__toggle"></i>
       <ul class="nav">
         <li><a href="<?php echo $BASE_URL . '/index.php' ?>">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
+        <li><a href="<?php echo $BASE_URL . '/about.php' ?>">About Us</a></li>
+        <!-- <li><a href="#">Services</a></li> -->
  
         <?php if (isset($_SESSION['id'])): ?>
 
@@ -18,7 +18,7 @@
           </a>
           <ul>
           <?php if($_SESSION['admin']): ?>  <!--if user is an admin display dashborad else only show the log out -->
-            <li><a href="<?php echo $BASE_URL . '/admin/dashboard.php' ?>">Dashbord</a></li>
+            <li><a href="<?php echo $BASE_URL . '/admin/dashboard.php' ?>">Dashboard</a></li>
             <?php endif; ?>
             <li><a href="<?php echo $BASE_URL . '/logout.php'   ?>" class="logout">Logout</a></li>
           </ul>  

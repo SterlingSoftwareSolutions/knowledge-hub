@@ -68,7 +68,7 @@
     unset($_POST['update-topic'], $_POST['id']);                     // get the knowledge of code 
     $topic_id = update($table, $id, $_POST);
     $_SESSION['message'] = 'Topic Updated successfully';
-    $_SESSION['type'] = 'success';    //css class
+    $_SESSION['type'] = 'success';    
     header('location:' . $BASE_URL . '/admin/topics/index.php');
     exit();
  

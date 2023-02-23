@@ -62,13 +62,14 @@ adminOnly();
               </thead>
               <tbody>
                  <?php foreach ($posts as $key => $post): ?>
-
                   <tr>
                   <td><?php echo $key  ?></td>
                   <td> <?php echo $post['title']?></td>
                   <td>Mhm</td>
                   <td><a href="edit.php?id=<?php echo $post['id'];?>" class="edit">Edit</a></td>
+
                   <td><a href="edit.php?delete_id=<?php echo $post['id'];?>" class="delete">Delete</a></td>
+                  
                     <?php if ($post ['published']): ?>
                   <td><a href="edit.php?published=0&p_id=<?php echo $post['id'] ?>" class="unpublish">Unpublish</a></td>
                   <?php else: ?>  
@@ -76,19 +77,14 @@ adminOnly();
                   <?php endif; ?>
                 <tr>
                   <?php endforeach; ?>
-               
-             
               </tbody>
             </table>
-
           </div>
-
         </div>
         <!-- Admin Content End -->
 
     </div>
     <!-- Admin Page Wrapper End -->
-
     <!-- JQuery -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.slim.min.js"
@@ -96,10 +92,8 @@ adminOnly();
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-
     <!-- CKeditor -->
     <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
-
     <!-- Custome Script -->
     <script src="../../assets/js/script.js"></script>
   </body>

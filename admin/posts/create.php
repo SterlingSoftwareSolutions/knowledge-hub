@@ -109,20 +109,33 @@ adminOnly();
                 <input type="checkbox" name="published" checked>Publish
               </label>
             <?php endif; ?>
-
-
           </div>
           <div>
-            <button type="submit" name="add-post" class="btn btn__big">Add Post</button>
+            <?php if (empty($isAdmin)) : ?>
+              <label>
+                <input type="checkbox" name="isAdmin">Admin View
+              </label>
+            <?php else : ?>
+              <label>
+                <input type="checkbox" name="isAdmin" checked>Admin View
+              </label>
+            <?php endif; ?>
           </div>
-        </form>
+
+       
 
       </div>
+      <div>
+        <button type="submit" name="add-post" class="btn btn__big">Add Post</button>
+      </div>
+      </form>
 
     </div>
 
+  </div>
 
-    <!-- Admin Content End -->
+
+  <!-- Admin Content End -->
 
   </div>
   <!-- Admin Page Wrapper End -->
