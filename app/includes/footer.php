@@ -8,9 +8,9 @@
             The main goal of this site is to provide related articles and resources that allows users to polish their knowledge.
           </p>
           <div class="contact">
-            <span><i class="fas fa-phone"> &nbsp; 123-456-789</i></span>
+            <span><i class="fas fa-phone"> &nbsp; +94 112 252 291 </i></span>
             <span><i class="fas fa-envelope">
-                &nbsp; KnowledgeHub@gmail.com</i></span>
+                &nbsp; teamleader.it@noveltelecom.com.au</i></span>
           </div>
           <div class="socials">
             <a href="#"><i class="fab fa-facebook"></i></a>
