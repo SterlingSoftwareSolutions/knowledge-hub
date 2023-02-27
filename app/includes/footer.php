@@ -8,15 +8,15 @@
             The main goal of this site is to provide related articles and resources that allows users to polish their knowledge.
           </p>
           <div class="contact">
-            <span><i class="fas fa-phone"> &nbsp; +94 112 252 291 </i></span>
+            <span><i class="fas fa-phone"> &nbsp; +94 112 252 291</i></span>
             <span><i class="fas fa-envelope">
                 &nbsp; teamleader.it@noveltelecom.com.au</i></span>
           </div>
           <div class="socials">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/SterlingBPO/"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/company/sterling-bpo-solutions-pvt.-ltd"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/sterlingbpo/?hl=en"><i class="fab fa-instagram"></i></a>
+            <a href="https://sterlinglanka.com/"><i class="fa fa-globe"></i></a>
           </div>
         </div>
         <div class="footer__section links">
