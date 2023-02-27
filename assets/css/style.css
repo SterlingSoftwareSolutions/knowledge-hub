@@ -13,6 +13,8 @@ body {
   margin: 0px;
   background: #f6f6f6;
   font-family: "Lore", serif;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 
