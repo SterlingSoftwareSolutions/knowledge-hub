@@ -1,9 +1,6 @@
 <?php
 include("path.php");
-// include($ROOT_PATH . "/app/database/db.php");
 include($ROOT_PATH . "/app/controllers/topics.php");
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,14 +22,9 @@ include($ROOT_PATH . "/app/controllers/topics.php");
 
   <title>Blog</title>
 </head>
-
-
 <body>
-
   <?php include($ROOT_PATH . "/app/includes/header.php") ?>
   <?php include($ROOT_PATH . "/app/includes/messages.php") ?>
-
-
   <!-- Page Wrapper -->
 <style>
   .main__content {

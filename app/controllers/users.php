@@ -5,7 +5,6 @@ include($ROOT_PATH  . "/app/helpers/validateUser.php");
 
 $table = 'users';
 $admin_users = selectAll($table);
-
 $errors = array();
 $username = '';
 $admin = '';
@@ -15,7 +14,6 @@ $password = '';
 $passwordConf = '';
 
 function loginUser($user){
-    //log user
     $_SESSION['id'] = $user['id'];
     $_SESSION['username'] = $user['username'];
     $_SESSION['admin'] = $user['admin'];
@@ -32,12 +30,12 @@ function loginUser($user){
 
 }
 
-if (isset($_POST['register-btn']) || isset ($_POST['create-admin']))  {     //in here getting all values to $POST which are username email pw, pw con and  regsiter btn                                    
+if (isset($_POST['register-btn']) || isset ($_POST['create-admin']))  {                                       
   $errors = validateUser($_POST); 
 
   if (count($errors) === 0) {
-    unset($_POST['register-btn'], $_POST['passwordConf'],  $_POST['create-admin']); // unset using for remove the columns what we want to delete 
-    $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT); // password encrypting which mean hiding 
+    unset($_POST['register-btn'], $_POST['passwordConf'],  $_POST['create-admin']); 
+    $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     
     if(isset($_POST['admin'])){
@@ -47,8 +45,7 @@ if (isset($_POST['register-btn']) || isset ($_POST['create-admin']))  {     //in
       $_SESSION['type'] = "success";
       header('location: ' . $BASE_URL  . '/admin/users/index.php');
       exit();
-
-    } else{
+     } else{
       $_POST['admin'] = 0;
       $user_id = create('users', $_POST);
       $user = selectOne('users', ['id' => $user_id]);
@@ -65,14 +62,14 @@ if (isset($_POST['register-btn']) || isset ($_POST['create-admin']))  {     //in
 }
 
 if (isset($_POST['update-user'])){
+  // dd($_POST);
   adminOnly();
-  $errors = validateUser($_POST); 
+  $errors = validateUser($_POST , "update"); 
 
   if (count($errors) === 0) {
     $id = $_POST['id'];
-    unset($_POST['passwordConf'],  $_POST['update-user'], $_POST['id']); // unset using for remove the columns what we want to delete 
-    $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT); // password encrypting which mean hiding 
-
+    unset($_POST['passwordConf'],  $_POST['update-user'], $_POST['id'], ); 
+    $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT); 
     
       $_POST['admin'] = isset($_POST['admin']) ? 1 : 0;               
       $user_id = update($table, $id, $_POST);
@@ -97,8 +94,9 @@ if (isset($_GET['id'])){
 
   $username = $user['username'];
   $id = $user['id'];
-  $admin = $user['admin'];
+  $admin = $user['admin'] ? 1:0;
   $email = $user['email'];
+  $password = $user['password'];
 }
 
 if (isset($_POST['login-btn'])) {

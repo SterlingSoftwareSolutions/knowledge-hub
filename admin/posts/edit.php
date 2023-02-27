@@ -72,19 +72,20 @@ if (isset($_GET['delete'])) {
           </div>
 
           <div>
-          <div class="imgGallery">
-            <!-- Image preview -->
-          </div>
+            <div class="imgGallery">
+              <!-- Image preview -->
+            </div>
             <label>New Images</label>
             <input type="file" name="files[]" class="text__input" id="chooseFile" multiple>
-           
+
             <?php
             foreach ($images_for_the_post as $key => $image) {
               $imageURL = $BASE_URL . '/assets/images/' . $image["images"]; ?>
               <table>
                 <tr>
-                  <td><img src="<?php echo  $imageURL; ?>" alt="" style="width:auto; height:120px"/></td>
-                  <td><a href="edit.php?id=<?php echo $id;?>&delete_img=<?php echo $image['id']; ?>" class="delete">Delete</a></td>
+                  <td><img src="<?php echo  $imageURL; ?>" alt="" style="width:auto; height:120px" /></td>
+                  <td><a href="edit.php?id=<?php echo $id; ?>&delete_img=<?php echo $image['id']; ?>" class="delete">Delete</a></td>
+              
                 </tr>
               </table>
             <?php } ?>
@@ -93,9 +94,20 @@ if (isset($_GET['delete'])) {
           <div>
             <label for="file">Video</label><br>
             <input type="file" name="video" class="video"><br>
-            <video src="<?php echo $BASE_URL . '/assets/videos/' . $newpost['video']; ?>" style="margin-left: 80px ; border-radius: 15px;" width="300px" height="180px" controls autoplay="true" loop="true">
+            <table>
+              <tr>
+                <td>
+                  <?php
+                  if (!empty($newpost['video'])) {
+                    echo '<video controls autoplay loop style="border-radius: 15px; width:auto; height:150px;"><source src="' . $BASE_URL . '/assets/videos/' . $newpost['video'] . '"></video>';
+                  } else {
+                    echo '';
+                  }
+                  ?>
+                </td>
+              </tr>
+            </table>
           </div>
-
           <div>
             <label>Topic</label>
             <select name="topic_id" class="text__input">

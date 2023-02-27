@@ -4,7 +4,7 @@ $newpost;
 if (isset($_GET['id'])) {
   $post = selectOne('posts', ['id' =>  $_GET['id']]);
   $newpost = $post;
-  $images_for_the_post = selectAll('uploads', ['postId' => $_GET['id']]); 
+  $images_for_the_post = selectAll('uploads', ['postId' => $_GET['id']]);
 }
 $filtered_Posts = array();
 $topics = selectAll('topics');
@@ -83,16 +83,12 @@ $posts =  $filtered_Posts;
             <br>
             <!-- Video -->
             <?php
-            if (file_exists($filename)) {
-    echo "The file $filename exists";
-} else {
-    echo "The file $filename does not exist";
-}
-?>
-            <video src="<?php echo $BASE_URL . '/assets/videos/' . $newpost['video']; ?>"
-             style="margin-left: 80px ; border-radius: 15px;" width="540px" height="300px" 
-             controls autoplay="true" loop="true">
-            </video>
+            if (!empty($newpost['video'])) {
+              echo '<video controls autoplay loop style="border-radius: 15px; max-width:100%; height:auto;"><source src="' . $BASE_URL . '/assets/videos/' . $newpost['video'] . '"></video>';
+            } else {
+              echo '';
+            }
+            ?>
           </div>
         </div>
       </div>

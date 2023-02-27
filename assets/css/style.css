@@ -179,8 +179,14 @@ header ul li ul li a.logout {
   color: red;
 }
 
-header ul li ul li a:hover {
+/* header ul li ul li a:hover {
   background: #93B6D4;
+  cursor: pointer;
+} */
+
+header ul li a:hover{
+  background: #93B6D4;
+  cursor: pointer;
 }
 
 header ul li a {
@@ -209,32 +215,14 @@ header .menu__toggle {
 }
 /* Header $ Navigation Style End */
 /* Post Style */
-.post__slider {
+/* .post__slider {
   position: relative;
-}
+} */
 
 .post__slider .slider__title {
   text-align: center;
   margin: 30px auto;
 }
-
-/* .post__slider .next {
-  position: absolute;
-  top: 50%;
-  right: 30px;
-  font-size: 2em;
-  color: #0d57a2;
-  cursor: pointer;
-}
-
-.post__slider .prev {
-  position: absolute;
-  top: 50%;
-  left: 30px;
-  font-size: 2em;
-  color: #0d57a2;
-  cursor: pointer;
-} */
 
 .post__slider .post__wrapper {
   width: 95%;
@@ -534,7 +522,6 @@ header .menu__toggle {
   max-width: 100px;
   max-height: 100px;
 
-
 } 
 
 
@@ -600,7 +587,7 @@ header .menu__toggle {
 
   header ul {
     width: 100%;
-    background: #6d60f1;
+    background: #39608d;
     max-height: 0px;
     overflow: hidden;
   }
@@ -622,13 +609,13 @@ header .menu__toggle {
 
   header ul li ul li a {
     padding: 10px;
-    background: #6d60f1;
+    background: #2b4a6d;
     color: white;
     padding-left: 50px;
   }
 
   header ul li ul li a:hover {
-    background: #5547f0;
+    background: #345377;
   }
 
   header ul li ul li a.logout {

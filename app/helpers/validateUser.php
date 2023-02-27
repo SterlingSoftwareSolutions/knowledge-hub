@@ -1,10 +1,9 @@
 <?php
 
-  function validateUser($user)
+  function validateUser($user,$type=null)
   {
     // global $conn;
     $errors = array();
-    
 
     if (empty($user['username'])) {
       array_push($errors, 'Username is required');
@@ -22,10 +21,7 @@
       array_push($errors, 'Password does not Match');
     }
 
-    // $existingUser = selectOne('users', ['email' => $user['email']]);
-    // if($existingUser){
-    //     array_push($errors, 'Email is Already exists');
-    // }
+
     $existingUser = selectOne('users', ['email' => $user['email']]);
     if($existingUser){
       if(isset($user['update-user']) && $existingUser['id'] != $user['id']){
